@@ -73,28 +73,28 @@ export default function PortraitDetails({ params }: { params: { id: string } }) 
 
         {/* Selected Portrait */}
         <div className="mb-12">
-          <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-8">
-            <div className="relative aspect-[16/9] mb-8">
+          <div className="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-4 md:p-8">
+            <div className="relative aspect-square md:aspect-[16/9] mb-6 md:mb-8">
               <Image
                 src={selectedPortrait?.src || ''}
                 alt={selectedPortrait?.alt || ''}
                 fill
                 className="object-contain rounded-lg"
-                sizes="(max-width: 1200px) 100vw, 1200px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
                 priority
               />
             </div>
-            <div className="text-center mb-8">
-              <p className="text-3xl font-semibold text-gray-800 mb-2">{selectedPortrait?.price}</p>
-              <p className="text-xl text-gray-600">{selectedPortrait?.size}</p>
+            <div className="text-center mb-6 md:mb-8">
+              <p className="text-2xl md:text-3xl font-semibold text-gray-800 mb-2">{selectedPortrait?.price}</p>
+              <p className="text-lg md:text-xl text-gray-600">{selectedPortrait?.size}</p>
             </div>
             <ContactInfo />
           </div>
         </div>
 
         {/* Other Portraits Grid */}
-        <h2 className="text-2xl font-serif text-center mb-8">More Portraits</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+        <h2 className="text-2xl font-serif text-center mb-6 md:mb-8">More Portraits</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-6">
           {otherPortraits.map((item) => (
             <Link key={item.id} href={`/portrait/${item.id}`}>
               <Card className="transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white">
