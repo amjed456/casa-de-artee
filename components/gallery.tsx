@@ -24,14 +24,14 @@ export function Gallery() {
   const CLOUDINARY_URL = "https://res.cloudinary.com/dpriignbf/image/upload";
 
   const galleryItems = [
-    { src: `${CLOUDINARY_URL}/v1735835307/kitten.jpg`, alt: "Cat artwork in bedroom setting", price: "$299", size: "16\" x 20\"" },
-    { src: `${CLOUDINARY_URL}/v1735835306/cafe.jpg`, alt: "Modern bar with wooden slat wall", price: "$349", size: "20\" x 24\"" },
-    { src: `${CLOUDINARY_URL}/v1735835306/hotel.jpg`, alt: "Classic interior with striped wallpaper", price: "$399", size: "24\" x 36\"" },
-    { src: `${CLOUDINARY_URL}/v1735835306/bar.jpg`, alt: "Corner with bar stools", price: "$299", size: "16\" x 20\"" },
-    { src: `${CLOUDINARY_URL}/v1735835307/pew.jpg`, alt: "Minimalist gallery wall", price: "$449", size: "30\" x 40\"" },
-    { src: `${CLOUDINARY_URL}/v1735835307/shapes.jpg`, alt: "Living space with abstract art", price: "$379", size: "24\" x 30\"" },
-    { src: `${CLOUDINARY_URL}/v1735835307/plants.jpg`, alt: "Living room with leaf prints", price: "$329", size: "20\" x 24\"" },
-    { src: `${CLOUDINARY_URL}/v1735835307/nature.jpg`, alt: "Modern living room with landscape triptych", price: "$499", size: "36\" x 48\"" },
+    { src: `${CLOUDINARY_URL}/v1735835307/kitten.jpg`, alt: "Cat artwork in bedroom setting", price: "$299", size: "16\" x 20\"", id: "kitten" },
+    { src: `${CLOUDINARY_URL}/v1735835306/cafe.jpg`, alt: "Modern bar with wooden slat wall", price: "$349", size: "20\" x 24\"", id: "cafe" },
+    { src: `${CLOUDINARY_URL}/v1735835306/hotel.jpg`, alt: "Classic interior with striped wallpaper", price: "$399", size: "24\" x 36\"", id: "hotel" },
+    { src: `${CLOUDINARY_URL}/v1735835306/bar.jpg`, alt: "Corner with bar stools", price: "$299", size: "16\" x 20\"", id: "bar" },
+    { src: `${CLOUDINARY_URL}/v1735835307/pew.jpg`, alt: "Minimalist gallery wall", price: "$449", size: "30\" x 40\"", id: "pew" },
+    { src: `${CLOUDINARY_URL}/v1735835307/shapes.jpg`, alt: "Living space with abstract art", price: "$379", size: "24\" x 30\"", id: "shapes" },
+    { src: `${CLOUDINARY_URL}/v1735835307/plants.jpg`, alt: "Living room with leaf prints", price: "$329", size: "20\" x 24\"", id: "plants" },
+    { src: `${CLOUDINARY_URL}/v1735835307/nature.jpg`, alt: "Modern living room with landscape triptych", price: "$499", size: "36\" x 48\"", id: "nature" },
   ]
 
   return (
@@ -74,99 +74,105 @@ export function Gallery() {
         {/* Top row */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-8">
           {galleryItems.slice(0, 4).map((item, index) => (
-            <Card 
-              key={index} 
-              className={`group transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white ${reduceMotion ? '' : 'swing'}`}
-              style={{
-                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-                transformOrigin: "50% -100%",
-                animationDuration: `${3 + Math.random() * 2}s`,
-                animationDirection: index % 2 === 0 ? 'alternate' : 'alternate-reverse'
-              }}
-            >
-              <CardContent className="p-3">
-                <div className="relative aspect-[3/4] rounded overflow-hidden">
-                  <div className="absolute -top-2 left-1/2 w-4 h-4 bg-gray-300 rounded-full transform -translate-x-1/2" />
-                  <div className="absolute -top-6 left-1/2 w-px h-4 bg-gray-300 transform -translate-x-1/2" />
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="mt-3 text-center">
-                  <p className="text-lg font-semibold text-gray-800">{item.price}</p>
-                  <p className="text-sm text-gray-600">{item.size}</p>
-                </div>
-              </CardContent>
-            </Card>
+            <Link href={`/portrait/${item.id}`}>
+              <Card 
+                key={index} 
+                className={`group transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white ${reduceMotion ? '' : 'swing'}`}
+                style={{
+                  boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                  transformOrigin: "50% -100%",
+                  animationDuration: `${3 + Math.random() * 2}s`,
+                  animationDirection: index % 2 === 0 ? 'alternate' : 'alternate-reverse'
+                }}
+              >
+                <CardContent className="p-3">
+                  <div className="relative aspect-[3/4] rounded overflow-hidden">
+                    <div className="absolute -top-2 left-1/2 w-4 h-4 bg-gray-300 rounded-full transform -translate-x-1/2" />
+                    <div className="absolute -top-6 left-1/2 w-px h-4 bg-gray-300 transform -translate-x-1/2" />
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="mt-3 text-center">
+                    <p className="text-lg font-semibold text-gray-800">{item.price}</p>
+                    <p className="text-sm text-gray-600">{item.size}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
         {/* Middle row */}
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 mb-8">
           {galleryItems.slice(4, 6).map((item, index) => (
-            <Card 
-              key={index} 
-              className={`group transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white ${reduceMotion ? '' : 'swing'}`}
-              style={{
-                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-                transformOrigin: "50% -100%",
-                animationDuration: `${3 + Math.random() * 2}s`,
-                animationDirection: index % 2 === 0 ? 'alternate' : 'alternate-reverse'
-              }}
-            >
-              <CardContent className="p-3">
-                <div className="relative aspect-square rounded overflow-hidden">
-                  <div className="absolute -top-2 left-1/2 w-4 h-4 bg-gray-300 rounded-full transform -translate-x-1/2" />
-                  <div className="absolute -top-6 left-1/2 w-px h-4 bg-gray-300 transform -translate-x-1/2" />
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="mt-3 text-center">
-                  <p className="text-lg font-semibold text-gray-800">{item.price}</p>
-                  <p className="text-sm text-gray-600">{item.size}</p>
-                </div>
-              </CardContent>
-            </Card>
+            <Link href={`/portrait/${item.id}`}>
+              <Card 
+                key={index} 
+                className={`group transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white ${reduceMotion ? '' : 'swing'}`}
+                style={{
+                  boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                  transformOrigin: "50% -100%",
+                  animationDuration: `${3 + Math.random() * 2}s`,
+                  animationDirection: index % 2 === 0 ? 'alternate' : 'alternate-reverse'
+                }}
+              >
+                <CardContent className="p-3">
+                  <div className="relative aspect-square rounded overflow-hidden">
+                    <div className="absolute -top-2 left-1/2 w-4 h-4 bg-gray-300 rounded-full transform -translate-x-1/2" />
+                    <div className="absolute -top-6 left-1/2 w-px h-4 bg-gray-300 transform -translate-x-1/2" />
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="mt-3 text-center">
+                    <p className="text-lg font-semibold text-gray-800">{item.price}</p>
+                    <p className="text-sm text-gray-600">{item.size}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
         {/* Bottom row */}
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 mb-8">
           {galleryItems.slice(6, 8).map((item, index) => (
-            <Card 
-              key={index} 
-              className={`group transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white ${reduceMotion ? '' : 'swing'}`}
-              style={{
-                boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-                transformOrigin: "50% -100%",
-                animationDuration: `${3 + Math.random() * 2}s`,
-                animationDirection: index % 2 === 0 ? 'alternate' : 'alternate-reverse'
-              }}
-            >
-              <CardContent className="p-3">
-                <div className="relative aspect-square rounded overflow-hidden">
-                  <div className="absolute -top-2 left-1/2 w-4 h-4 bg-gray-300 rounded-full transform -translate-x-1/2" />
-                  <div className="absolute -top-6 left-1/2 w-px h-4 bg-gray-300 transform -translate-x-1/2" />
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="mt-3 text-center">
-                  <p className="text-lg font-semibold text-gray-800">{item.price}</p>
-                  <p className="text-sm text-gray-600">{item.size}</p>
-                </div>
-              </CardContent>
-            </Card>
+            <Link href={`/portrait/${item.id}`}>
+              <Card 
+                key={index} 
+                className={`group transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white ${reduceMotion ? '' : 'swing'}`}
+                style={{
+                  boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+                  transformOrigin: "50% -100%",
+                  animationDuration: `${3 + Math.random() * 2}s`,
+                  animationDirection: index % 2 === 0 ? 'alternate' : 'alternate-reverse'
+                }}
+              >
+                <CardContent className="p-3">
+                  <div className="relative aspect-square rounded overflow-hidden">
+                    <div className="absolute -top-2 left-1/2 w-4 h-4 bg-gray-300 rounded-full transform -translate-x-1/2" />
+                    <div className="absolute -top-6 left-1/2 w-px h-4 bg-gray-300 transform -translate-x-1/2" />
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="mt-3 text-center">
+                    <p className="text-lg font-semibold text-gray-800">{item.price}</p>
+                    <p className="text-sm text-gray-600">{item.size}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
 
