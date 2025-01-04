@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
 import Link from 'next/link'
+import { ContactInfo } from "@/components/contact-info"
 
 export function Gallery() {
   const [reduceMotion, setReduceMotion] = useState(false)
@@ -53,9 +54,11 @@ export function Gallery() {
 
       {/* Gallery content */}
       <div className="container mx-auto px-4 py-12 relative">
-        <h1 className="text-5xl font-serif text-center mb-16 text-gray-800">
+        <h1 className="text-5xl font-serif text-center mb-4 text-gray-800">
           Casa De Art&apos;e
         </h1>
+        <ContactInfo />
+        <div className="mb-12" /> {/* Spacing */}
         
         <div className="flex items-center justify-end mb-4">
           <Switch

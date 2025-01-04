@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
+import { ContactInfo } from "@/components/contact-info"
 
 export default function AllPortraits() {
   const [reduceMotion, setReduceMotion] = useState(false)
@@ -60,9 +61,11 @@ export default function AllPortraits() {
         <h1 className="text-5xl font-serif text-center mb-4 text-gray-800">
           Casa De Art&apos;e
         </h1>
-        <h2 className="text-2xl text-center mb-16 text-gray-600">
+        <h2 className="text-2xl text-center mb-4 text-gray-600">
           All Portraits
         </h2>
+        <ContactInfo />
+        <div className="mb-12" /> {/* Spacing */}
 
         <div className="flex justify-end mb-8">
           <Link 
