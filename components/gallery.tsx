@@ -74,9 +74,8 @@ export function Gallery() {
         {/* Top row */}
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 mb-8">
           {galleryItems.slice(0, 4).map((item, index) => (
-            <Link href={`/portrait/${item.id}`}>
+            <Link key={index} href={`/portrait/${item.id}`}>
               <Card 
-                key={index} 
                 className={`group transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white ${reduceMotion ? '' : 'swing'}`}
                 style={{
                   boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
@@ -109,9 +108,8 @@ export function Gallery() {
         {/* Middle row */}
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 mb-8">
           {galleryItems.slice(4, 6).map((item, index) => (
-            <Link href={`/portrait/${item.id}`}>
+            <Link key={index} href={`/portrait/${item.id}`}>
               <Card 
-                key={index} 
                 className={`group transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white ${reduceMotion ? '' : 'swing'}`}
                 style={{
                   boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
@@ -144,9 +142,8 @@ export function Gallery() {
         {/* Bottom row */}
         <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 mb-8">
           {galleryItems.slice(6, 8).map((item, index) => (
-            <Link href={`/portrait/${item.id}`}>
+            <Link key={index} href={`/portrait/${item.id}`}>
               <Card 
-                key={index} 
                 className={`group transform transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl bg-white ${reduceMotion ? '' : 'swing'}`}
                 style={{
                   boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
