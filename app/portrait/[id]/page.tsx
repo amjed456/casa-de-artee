@@ -10,23 +10,175 @@ export default function PortraitDetails({ params }: { params: { id: string } }) 
   const CLOUDINARY_URL = "https://res.cloudinary.com/dpriignbf/image/upload"
   
   const allPortraits = [
-    { id: "kitten", src: `${CLOUDINARY_URL}/v1735835307/kitten.jpg`, alt: "Cat artwork in bedroom setting", price: "$299", size: "16\" x 20\"" },
-    { id: "cafe", src: `${CLOUDINARY_URL}/v1735835306/cafe.jpg`, alt: "Modern bar with wooden slat wall", price: "$349", size: "20\" x 24\"" },
-    { id: "hotel", src: `${CLOUDINARY_URL}/v1735835306/hotel.jpg`, alt: "Classic interior with striped wallpaper", price: "$399", size: "24\" x 36\"" },
-    { id: "bar", src: `${CLOUDINARY_URL}/v1735835306/bar.jpg`, alt: "Corner with bar stools", price: "$299", size: "16\" x 20\"" },
-    { id: "pew", src: `${CLOUDINARY_URL}/v1735835307/pew.jpg`, alt: "Minimalist gallery wall", price: "$449", size: "30\" x 40\"" },
-    { id: "shapes", src: `${CLOUDINARY_URL}/v1735835307/shapes.jpg`, alt: "Living space with abstract art", price: "$379", size: "24\" x 30\"" },
-    { id: "plants", src: `${CLOUDINARY_URL}/v1735835307/plants.jpg`, alt: "Living room with leaf prints", price: "$329", size: "20\" x 24\"" },
-    { id: "nature", src: `${CLOUDINARY_URL}/v1735835307/nature.jpg`, alt: "Modern living room with landscape triptych", price: "$499", size: "36\" x 48\"" },
-    { id: "cartier", src: `${CLOUDINARY_URL}/v1735835306/cartier.jpg`, alt: "Cat artwork variation 2", price: "$319", size: "16\" x 20\"" },
-    { id: "coffee", src: `${CLOUDINARY_URL}/v1735835307/coffee.jpg`, alt: "Modern bar variation 2", price: "$369", size: "20\" x 24\"" },
-    { id: "horse1", src: `${CLOUDINARY_URL}/v1735835306/horse1.jpg`, alt: "Classic interior variation 2", price: "$419", size: "24\" x 36\"" },
-    { id: "horse2", src: `${CLOUDINARY_URL}/v1735835306/horse2.jpg`, alt: "Corner view variation 2", price: "$289", size: "16\" x 20\"" },
-    { id: "horse3", src: `${CLOUDINARY_URL}/v1735835307/horse3.jpg`, alt: "Gallery wall variation 2", price: "$469", size: "30\" x 40\"" },
-    { id: "kitchen", src: `${CLOUDINARY_URL}/v1735835307/kitchen.jpg`, alt: "Abstract art variation 2", price: "$359", size: "24\" x 30\"" },
-    { id: "religeon", src: `${CLOUDINARY_URL}/v1735835307/religeon.jpg`, alt: "Leaf prints variation 2", price: "$339", size: "20\" x 24\"" },
-    { id: "croissant", src: `${CLOUDINARY_URL}/v1735835306/croissant.jpg`, alt: "Landscape variation 2", price: "$519", size: "36\" x 48\"" },
-    { id: "chai", src: `${CLOUDINARY_URL}/v1735835307/chai.jpg`, alt: "Final masterpiece", price: "$599", size: "40\" x 60\"" }
+    { 
+      id: "kitten",
+      src: `${CLOUDINARY_URL}/v1735835307/kitten.jpg`,
+      alt: "Cat artwork in bedroom setting",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "cafe",
+      src: `${CLOUDINARY_URL}/v1735835306/cafe.jpg`,
+      alt: "Modern bar with wooden slat wall",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "hotel",
+      src: `${CLOUDINARY_URL}/v1735835306/hotel.jpg`,
+      alt: "Classic interior with striped wallpaper",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "bar",
+      src: `${CLOUDINARY_URL}/v1735835306/bar.jpg`,
+      alt: "Corner with bar stools",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "pew",
+      src: `${CLOUDINARY_URL}/v1735835307/pew.jpg`,
+      alt: "Minimalist gallery wall",
+      variants: [
+        { size: "40\" x 30\"", price: "$140" },
+        { size: "60\" x 45\"", price: "$250" },
+        { size: "100\" x 70\"", price: "$465" }
+      ]
+    },
+    { 
+      id: "shapes",
+      src: `${CLOUDINARY_URL}/v1735835307/shapes.jpg`,
+      alt: "Living space with abstract art",
+      variants: [
+        { size: "40\" x 30\"", price: "$140" },
+        { size: "60\" x 45\"", price: "$250" },
+        { size: "100\" x 70\"", price: "$465" }
+      ]
+    },
+    { 
+      id: "plants",
+      src: `${CLOUDINARY_URL}/v1735835307/plants.jpg`,
+      alt: "Living room with leaf prints",
+      variants: [
+        { size: "40\" x 30\"", price: "$140" },
+        { size: "60\" x 45\"", price: "$250" },
+        { size: "100\" x 70\"", price: "$465" }
+      ]
+    },
+    { 
+      id: "nature",
+      src: `${CLOUDINARY_URL}/v1735835307/nature.jpg`,
+      alt: "Modern living room with landscape triptych",
+      variants: [
+        { size: "40\" x 30\"", price: "$140" },
+        { size: "60\" x 45\"", price: "$250" },
+        { size: "100\" x 70\"", price: "$465" }
+      ]
+    },
+    { 
+      id: "cartier",
+      src: `${CLOUDINARY_URL}/v1735835306/cartier.jpg`,
+      alt: "Cat artwork variation 2",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "coffee",
+      src: `${CLOUDINARY_URL}/v1735835307/coffee.jpg`,
+      alt: "Modern bar variation 2",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "horse1",
+      src: `${CLOUDINARY_URL}/v1735835306/horse1.jpg`,
+      alt: "Classic interior variation 2",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "horse2",
+      src: `${CLOUDINARY_URL}/v1735835306/horse2.jpg`,
+      alt: "Corner view variation 2",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "horse3",
+      src: `${CLOUDINARY_URL}/v1735835307/horse3.jpg`,
+      alt: "Gallery wall variation 2",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "kitchen",
+      src: `${CLOUDINARY_URL}/v1735835307/kitchen.jpg`,
+      alt: "Abstract art variation 2",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "religeon",
+      src: `${CLOUDINARY_URL}/v1735835307/religeon.jpg`,
+      alt: "Leaf prints variation 2",
+      variants: [
+        { size: "40\" x 30\"", price: "$120" },
+        { size: "60\" x 45\"", price: "$180" }
+      ]
+    },
+    { 
+      id: "croissant",
+      src: `${CLOUDINARY_URL}/v1735835306/croissant.jpg`,
+      alt: "Landscape variation 2",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    },
+    { 
+      id: "chai",
+      src: `${CLOUDINARY_URL}/v1735835307/chai.jpg`,
+      alt: "Final masterpiece",
+      variants: [
+        { size: "40\" x 30\"", price: "$80" },
+        { size: "60\" x 45\"", price: "$120" },
+        { size: "100\" x 70\"", price: "$240" }
+      ]
+    }
   ]
 
   const selectedPortrait = allPortraits.find(p => p.id === params.id)
@@ -85,8 +237,12 @@ export default function PortraitDetails({ params }: { params: { id: string } }) 
               />
             </div>
             <div className="text-center mb-6 md:mb-8">
-              <p className="text-2xl md:text-3xl font-semibold text-gray-800 mb-2">{selectedPortrait?.price}</p>
-              <p className="text-lg md:text-xl text-gray-600">{selectedPortrait?.size}</p>
+              {selectedPortrait?.variants.map((variant, idx) => (
+                <div key={idx} className="border-b last:border-0 border-gray-100 py-2">
+                  <p className="text-2xl md:text-3xl font-semibold text-gray-800">{variant.price}</p>
+                  <p className="text-lg md:text-xl text-gray-600">{variant.size}</p>
+                </div>
+              ))}
             </div>
             <ContactInfo />
           </div>
@@ -107,9 +263,13 @@ export default function PortraitDetails({ params }: { params: { id: string } }) 
                       className="object-cover"
                     />
                   </div>
-                  <div className="mt-3 text-center">
-                    <p className="text-lg font-semibold text-gray-800">{item.price}</p>
-                    <p className="text-sm text-gray-600">{item.size}</p>
+                  <div className="mt-3 text-center space-y-1">
+                    {item.variants.map((variant, idx) => (
+                      <div key={idx} className="border-b last:border-0 border-gray-100 py-1">
+                        <p className="text-lg font-semibold text-gray-800">{variant.price}</p>
+                        <p className="text-sm text-gray-600">{variant.size}</p>
+                      </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
